@@ -1,0 +1,12 @@
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: yarn    
+    - uses: actions/download-artifact@v2
+      with:
+        name: assets
+        path: dist
+    - name: Run Lint Checks
+      run: yarn style
